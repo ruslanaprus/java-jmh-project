@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class ItemRemoval {
-    public static void concurrentModificationOne() {
+    public static void concurrentModificationOne() { // 57_401.478 ops/ms
         List<Integer> numbers = new ArrayList<>(
                 Arrays.asList(1, 2, 3, 4, 5, 6, 7)
         );
@@ -20,7 +20,7 @@ public class ItemRemoval {
         }
     }
 
-    public static void concurrentModificationTwo() {
+    public static void concurrentModificationTwo() { // 30_718.343 ops/ms
         int[] prices = new int[]{1, 2, 3, 4, 2, 5, 6, 2, 7};
         int toRemove = 2;
         int[] newPrices = Arrays.stream(prices)
@@ -42,5 +42,26 @@ public class ItemRemoval {
         // Resize the array if necessary
         int[] newArray = Arrays.copyOf(prices, newSize);
     }
+
+    public static void concurrentModificationFour() { // 165_229.963 ops/ms
+        int[] prices = new int[]{1, 2, 3, 4, 2, 5, 6, 2, 7};
+        int toRemove = 2;
+        int toRemoveCount = 0;
+        for(int price: prices) {
+            if (price == toRemove) {
+                toRemoveCount++;
+            }
+        }
+
+        int[] result = new int[prices.length - toRemoveCount];
+        int index = 0;
+        for(int price: prices) {
+            if (price != toRemove) {
+                result[index] = price;
+                index++;
+            }
+        }
+    }
+
 
 }
