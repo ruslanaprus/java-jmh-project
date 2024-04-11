@@ -12,7 +12,7 @@ public class Main {
     @Warmup(iterations = 3)
     @Measurement(iterations = 3)
     public static void implementationOne() {
-
+        Sum.calcOne(456);
     }
 
     @Benchmark
@@ -21,16 +21,16 @@ public class Main {
     @Warmup(iterations = 3)
     @Measurement(iterations = 3)
     public static void implementationTwo() {
-
+        Sum.calcTwo(456);
     }
-    @Benchmark
-    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    @Fork(value = 2)
-    @Warmup(iterations = 3)
-    @Measurement(iterations = 3)
-    public static void implementationThree() {
-
-    }
+//    @Benchmark
+//    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+//    @Fork(value = 2)
+//    @Warmup(iterations = 3)
+//    @Measurement(iterations = 3)
+//    public static void implementationThree() {
+//
+//    }
 
 
 //    public static void init(){
