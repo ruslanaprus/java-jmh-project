@@ -39,4 +39,49 @@ public class StringObjects {
         return result;
     }
 
+    public static String drawPatternOne(char[] pattern, int repeatCount){
+        StringBuilder result = new StringBuilder();
+
+        int i = 0;
+        while (i < repeatCount){
+            int j = 0;
+            while (j < pattern.length){
+                result.append(pattern[j]);
+                j++;
+            }
+            i++;
+        }
+        return result.toString();
+    }
+
+    public static String drawPatternTwo(char[] pattern, int repeatCount) {
+        StringBuilder result = new StringBuilder();
+        int i = repeatCount;
+        while (i > 0) {
+            int j = 0;
+            while (j < pattern.length) {
+                result.append(pattern[j++]);
+            }
+            i--;
+        }
+        return result.toString();
+    }
+
+    public static String drawPatternFour(char[] pattern, int repeatCount) {
+        String result = "";
+
+        int line = 0;
+        while(line < repeatCount) {
+            int i = 0;
+            while(i < pattern.length) {
+                result += pattern[i];
+                i++;
+            }
+            result += "";
+            line++;
+        }
+        return result;
+    }
+
+
 }

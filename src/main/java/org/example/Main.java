@@ -8,29 +8,29 @@ public class Main {
 
     @Benchmark
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    @Fork(value = 3)
-    @Warmup(iterations = 5)
-    @Measurement(iterations = 5)
+    @Fork(value = 2)
+    @Warmup(iterations = 3)
+    @Measurement(iterations = 3)
     public static void implementationOne() {
-        StringObjects.drawQuadOne(10);
+
     }
 
     @Benchmark
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    @Fork(value = 3)
-    @Warmup(iterations = 5)
-    @Measurement(iterations = 5)
+    @Fork(value = 2)
+    @Warmup(iterations = 3)
+    @Measurement(iterations = 3)
     public static void implementationTwo() {
-        StringObjects.drawQuadTwo(10);
+
     }
-//    @Benchmark
-//    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-//    @Fork(value = 3)
-//    @Warmup(iterations = 5)
-//    @Measurement(iterations = 5)
-//    public static void implementationThree() {
-//        ItemRemoval.concurrentModificationFour();
-//    }
+    @Benchmark
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    @Fork(value = 2)
+    @Warmup(iterations = 3)
+    @Measurement(iterations = 3)
+    public static void implementationThree() {
+
+    }
 
 
 //    public static void init(){
