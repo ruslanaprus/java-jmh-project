@@ -1,6 +1,6 @@
 package org.example;
 
-public class Sum {
+public class IterationVsRecursion {
     public static int calcOne(int n) {
         int sum = 0;
         for(int i = 1; i <= n; i++) {

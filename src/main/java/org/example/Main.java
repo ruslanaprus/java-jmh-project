@@ -12,7 +12,7 @@ public class Main {
     @Warmup(iterations = 3)
     @Measurement(iterations = 3)
     public static void implementationOne() {
-        Sum.calcOne(456);
+        WordDeleter.remove("vys coe objiqono potou sydiesu yhypno", new String[] {"coe", "yhypno", "vys", "potou"});
     }
 
     @Benchmark
@@ -21,24 +21,25 @@ public class Main {
     @Warmup(iterations = 3)
     @Measurement(iterations = 3)
     public static void implementationTwo() {
-        Sum.calcTwo(456);
+        WordDeleter.removeWithHashMap("vys coe objiqono potou sydiesu yhypno", new String[] {"coe", "yhypno", "vys", "potou"});
     }
-//    @Benchmark
-//    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-//    @Fork(value = 2)
-//    @Warmup(iterations = 3)
-//    @Measurement(iterations = 3)
-//    public static void implementationThree() {
-//
-//    }
+    @Benchmark
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    @Fork(value = 2)
+    @Warmup(iterations = 3)
+    @Measurement(iterations = 3)
+    public static void implementationThree() {
+        WordDeleter.removeWithList("vys coe objiqono potou sydiesu yhypno", new String[] {"coe", "yhypno", "vys", "potou"});
+    }
 
-
-//    public static void init(){
-//        GetFirstDigit.getFirstDigitOne(75); // division by 10, second digit is needed - 1_763_585 ops/ms
-//        GetFirstDigit.getFirstDigitTwo(75); // toString and getNumericValue() - 441_410 ops/ms
-//        GetFirstDigit.getFirstDigitThree(75); // stream() filter - 7_946 ops/ms
-//        GetFirstDigit.getFirstDigitFour(75); // curious and magical (int)a.charAt(0) - '0'; - 488_889 ops/ms
-//    }
+    @Benchmark
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    @Fork(value = 2)
+    @Warmup(iterations = 3)
+    @Measurement(iterations = 3)
+    public static void implementationFour() {
+        WordDeleter.removeWithRegex("vys coe objiqono potou sydiesu yhypno", new String[] {"coe", "yhypno", "vys", "potou"});
+    }
 
     public static void main(String[] args) throws Exception {
         org.openjdk.jmh.Main.main(args);
